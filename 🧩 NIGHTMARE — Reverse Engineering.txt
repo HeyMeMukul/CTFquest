@@ -1,0 +1,71 @@
+🧩 NIGHTMARE — Reverse Engineering Challenge Write-Up
+
+Category: Reverse Engineering
+Flag format: SECE{...}
+
+The challenge description says:
+
+A door opens into silence. Every step forward triggers something unseen. Only those who refuse to give up reach the end.
+
+From the start, this hints at hidden traps, misleading paths, and the need to push past fake solutions.
+
+🔍 Step 1 — Initial Inspection
+
+The first thing I did was run basic analysis on the binary:
+
+file chall
+strings chall
+
+
+This immediately revealed several suspicious “flags” inside the file:
+
+SECE{f4k3_fl4g_try_h4rd3r}
+SECE{n0t_th3_r34l_0n3}
+SECE{y0u_g0t_tr1ck3d_l0l}
+SECE{B1N4RY_P4TCH1NG_1S_345Y}
+SECE{N4N7RY_P5TCH4NG_IS_N9T_T03_
+
+
+Clearly, the binary was packed with decoys designed to waste time.
+
+🧠 Step 2 — Finding the Hidden Message
+
+One string stood out:
+
+N4N7RY_P5TCH4NG_IS_N9T_T03_
+
+
+After converting the leetspeak:
+
+4 → A
+
+7 → T
+
+5 → S
+
+9 → O
+
+0 → O
+
+3 → E
+
+It becomes:
+
+BINARY_PATCHING_IS_NOT_TOO_
+
+
+Later in memory, the program appends:
+
+34SY  →  EASY
+
+
+So the full message is:
+
+BINARY_PATCHING_IS_NOT_TOO_EASY
+
+In leetspeak flag format:
+
+SECE{B1N4RY_P4TCH1NG_IS_N0T_T00_34SY}
+
+
+At this point it was clear the challenge revolves
