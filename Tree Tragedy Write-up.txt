@@ -1,0 +1,36 @@
+Challenge Write-up: Tree Tragedy
+This challenge is a forensic and OSINT-based puzzle centered around one of the most mysterious criminal cases in modern Indian history: the Burari Deaths (2018).
+
+1. Analysis of the Artifacts
+The Photograph (rep.jpg): The image depicts a Banyan tree with prominent aerial roots. In the context of the "Tree Tragedy," this is a visual metaphor for the "Badh Tapasya" (Banyan Tree Penance). The family involved in the incident believed that by hanging in a specific formation, they would resemble the hanging roots of a Banyan tree, leading to their salvation.
+
+The Diary (voice.jpg): This is a crucial piece of evidence. The handwriting is in Hindi and contains specific ritualistic instructions. Some key phrases translated include:
+
+"Badh puja lagatar karni hai" (The Banyan tree ritual must be done continuously).
+
+"Chunni ya saari ka prayog" (Use of stoles or sarees).
+
+"Haath prarthana ki mudra mein" (Hands in a prayer position).
+
+"Aankho par patti" (Blindfolds on the eyes).
+
+2. Identifying the Case
+By searching for keywords like "11 family members," "Banyan tree ritual," and "diaries found in house," the search leads directly to the Burari mass suicide/accidental death case.
+
+In 2018, 11 members of the Chundawat family were found dead in their home in Delhi. The investigation revealed that the youngest son, Lalit Bhatia, had been claiming for over a decade that he was receiving instructions from a "voice."
+
+3. Finding the Source of the Voice
+According to the diaries and family testimony, Lalit Bhatia claimed that the spirit of his deceased father was communicating through him. He would often enter a trance-like state where his voice would change, and he would dictate instructions to the family as if he were his father.
+
+The "voice" that the entire family obeyed, leading to the tragedy, belonged to the patriarch: Bhopal Singh.
+
+Challenge Solution
+Case Reference: The Burari Deaths.
+
+The Medium: Lalit Bhatia (who heard the voice).
+
+The Source: Bhopal Singh (the deceased father).
+
+On trying some combinations for this i finally got the flag..
+
+Flag: SECE{bhopalsingh}
