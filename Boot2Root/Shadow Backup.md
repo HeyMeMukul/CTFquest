@@ -12,3 +12,5 @@ To Change the Password Follow below steps
 After that go to root/flag/root.txt for the flag 
 
 Image : 
+
+![f096635f-19dc-4291-824a-e79417400319](https://github.com/user-attachments/assets/8adb7fa1-039a-47e7-ab5b-45a178517c10)
