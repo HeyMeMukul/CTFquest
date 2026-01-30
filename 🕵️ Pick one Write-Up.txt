@@ -1,0 +1,84 @@
+🕵️ Pick one Write-Up
+Challenge description
+During a recent deployment, an internal build artifact was exported for backup. Some sensitive data was supposedly removed before release, but traces of it may still exist somewhere inside. Analyze the provided file carefully and recover the hidden flag.
+
+
+Challenge Summary
+
+We were given a build artifact that was exported during deployment.
+The description hinted that sensitive data was removed before release — but traces might still exist.
+
+That usually means:
+
+Something was deleted — but not securely wiped.
+
+So the goal was to dig into the artifact and find what was left behind.
+
+📦 Step 1 — Identify the File Type
+
+After downloading the file, I first checked what it actually was:
+
+file image.tar
+
+
+It turned out to be a Docker image export.
+
+Docker images are built in layers — and this is important:
+
+👉 When a file is deleted in a later layer, it can still exist in earlier layers.
+
+🧩 Step 2 — Extract the Image
+
+I extracted the tar file:
+
+tar -xf image.tar
+
+
+Inside were multiple folders representing different filesystem layers.
+
+Each layer contained files plus some special “whiteout” files that look like:
+
+.wh.filename
+
+
+These mean:
+
+“This file was deleted in this layer.”
+
+👀 Step 3 — Spot the Deleted Flag
+
+While browsing the layers, I noticed:
+
+.wh.flag.txt
+
+
+This told me:
+
+✅ There was once a file called flag.txt
+❌ It was deleted later
+
+Which means…
+
+👉 The real flag probably exists in an earlier layer.
+
+⏪ Step 4 — Recover From Older Layer
+
+I searched older layers for flag.txt and found it still present.
+
+Opening it revealed:
+
+CTF{layers_never_forget}
+
+🏁 Step 5 — Format the Flag
+
+The challenge required:
+
+SECE{..}
+
+
+So converting:
+
+SECE{layers_never_forget}
+
+🎉 Final Flag
+✅ SECE{layers_never_forget}
