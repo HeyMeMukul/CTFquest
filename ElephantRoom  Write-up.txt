@@ -1,0 +1,48 @@
+Challenge:ElephantRoom
+
+Category: OSINT / Geolocation
+1. Challenge Overview
+The Narrative:
+"A holiday lover shared a square-framed picture from the rainy green hills of Kerala, posing proudly with a huge tusked friend while carrying a fancy camera bag. An old colonial-era wooden cottage stands behind him in the shot that was built by British."
+The Hint:
+"No encoding, No cipher, just observe the proper noun of old stufffss!"
+
+
+2. Reconnaissance & Analysis
+
+Step A: Analyzing Visual Evidence
+Nikon Gear: The image shows a Nikon camera bag. The description mentions a "fancy camera bag," confirming the person in the story is a photographer.
+The Pouch: The laptop sleeve has a Theyyam motif. Theyyam is a famous ritual art form of North Kerala (specifically Kannur and Wayanad districts). This narrows down the "rainy green hills" search to Northern Kerala.
+Laptop Screen: The screen shows a CTF platform (Traboda/InCTF style), indicating this is a challenge related to Indian cybersecurity communities.
+
+
+Step B: Decoding the Narrative
+"Rainy green hills of Kerala": Points to Wayanad, known for its lush forests and high rainfall.
+"Huge tusked friend": This is a classic reference to an elephant. In tourist spots, this usually means a life-size statue.
+"Old colonial-era wooden cottage built by British": This is the primary target. We need to find a British-era wooden structure in Wayanad near an elephant statue.
+
+3. Investigation & OSINT Path
+
+Search Query 1: "Elephant statue British wooden cottage Kerala hills"
+Searching for tourism landmarks in Wayanad led to the Muthanga Wildlife Sanctuary. At the entrance of Muthanga, there is a famous life-size elephant statue where tourists frequently take "square-framed" (Instagram style) photos.
+
+Search Query 2: "Muthanga British wooden building"
+Checking the history of the Muthanga range, I found references to a unique heritage structure located right there. It is a two-story forest guest house built entirely of wood by the British in the early 1900s.
+
+Step C: Identifying the "Proper Noun"
+The hint says to look for the "proper noun of old stufffss."
+In Kerala's architectural history, especially in the Wayanad/Malabar region, traditional wooden houses or colonial log houses have a specific local name.
+
+Researching the specific building at Muthanga reveals it is famously known as the "Cerambi" (or Muthanga Cerambi).
+Linguistic Check: In Malayalam, Cerambi (ചെരമ്പി) refers to a wooden granary or a traditional wooden structure used for storage/stay.
+
+Historical Fit: The Muthanga Cerambi is a celebrated colonial-era wooden "cottage" that matches every detail of the description.
+
+
+4. Final Solution
+The "proper noun" for the old colonial wooden structure is Cerambi.
+Flag: cerambi (or MUTHANGA_CERAMBI)
+
+I tried multiple combinations for this chall and last it got sumbit by 
+
+SECE{cerambi}
