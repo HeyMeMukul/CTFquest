@@ -1,0 +1,63 @@
+An innocuous hacker’s photo, uploaded anonymously to a public album, appears utterly ordinary at first glance—yet seasoned analysts suspect
+it harbors deeply nested secrets waiting to be uncovered. Dont leave anything in this challenge (description, title,etc..) u may need it..
+This is a fun challenge ->SECE{giffa itach zillo zillo mittai ou varal mittai zillo chou jit itach monk} FLAG format : SECE{xx_xx}
+
+
+1. Unzip images.zip with password - esoteric (as mentioned in the description that title will help)
+2. Explore the metadata :
+      The middle section of that ID is a sequence of Hexadecimal values separated by dots. If we take the hex values 63.72.40.63.6b.5f.6d.33, they translate from Hex to ASCII as:
+
+                                  63 -> c
+                                  
+                                  72 -> r
+                                  
+                                  40 -> a (actually @, but often used for 'a' in leetspeak)
+                                  
+                                  63 -> c
+                                  
+                                  6b -> k
+                                  
+                                  5f -> _
+                                  
+                                  6d -> m
+                                  
+                                  33 -> 3
+                                  
+                                  Combined, this spells cr@ck_m3
+
+3. and use " cr@ck_m3 " as password for steghide --extract -sf images.jpeg 
+4. you will get dict.txt : 
+                                    
+                                  A       - waffa
+                                  B       - watachi
+                                  C       - kurasaki
+                                  D       - chou
+                                  E       - itach
+                                  F       - zoro
+                                  G       - goko
+                                  H       - giffo
+                                  I       - jit
+                                  J       - zitto
+                                  K       - abai
+                                  L       - zillo
+                                  M       - mitsu
+                                  N       - saki
+                                  O       - miitai
+                                  P       - parse
+                                  Q       - qurao
+                                  R       - monk
+                                  S       - varal
+                                  T       - tazama
+                                  U       - uzaka
+                                  V       - aizuma
+                                  W       - markamota
+                                  X       - fattami
+                                  Y       - yakuzami
+                                  Z       - naiyato
+                                  @       - zamaka
+                                  -       - ai
+                                  _       - ou
+
+5. Now just map the values 
+6. Flag : SECE{HELLO_SOLDIER}
+
