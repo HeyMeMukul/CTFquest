@@ -1,0 +1,80 @@
+🕵️ Shadow Bind — Reverse Engineering Write-Up
+
+When I first ran the binary, everything looked normal.
+No crash, no input prompt, no flag — just a basic integrity check message and exit.
+
+At this point, it was clear this challenge was hiding something deeper.
+
+🔍 Step 1: Spotting the Trick (Dynamic Library)
+
+Using ldd, I noticed the program was loading a shared object:
+
+libshadow.so
+
+
+This immediately hinted that the real logic might not be inside the main binary.
+
+So instead of wasting time reversing shadow_core fully, I shifted focus to the library.
+
+📚 Step 2: Reversing the Library
+
+Opening libshadow.so in a disassembler showed something interesting:
+
+The library was:
+
+• Opening /proc/self/exe
+• Reading bytes from its own running binary
+• Jumping behavior based on what it read
+
+In short — the program was inspecting itself.
+
+This is a classic self-integrity / self-inspection trick.
+
+🧠 Step 3: Finding the Hidden Condition
+
+Digging deeper, I found:
+
+The library seeks to:
+
+offset 0x3000
+
+
+Then reads 6 bytes and compares them to:
+
+CHROMA
+
+✔ If match → secret function runs
+❌ If not → normal execution
+
+The secret function decrypted and printed the flag.
+
+🧪 Step 4: Why It Never Triggered
+
+Checking the binary at offset 0x3000 showed:
+
+00 00 00 00 00 00
+
+
+So the condition could never be true.
+
+The program was designed to never reach the hidden path unless patched.
+
+🛠 Step 5: Triggering the Secret Path
+
+I patched the binary:
+
+At offset 0x3000, replaced null bytes with:
+
+CHROMA
+
+
+Saved the file and ran it again.
+
+🎉 Step 6: Flag Revealed
+
+The hidden function executed and printed:
+
+SECE{sh4d0w_b1nd_dyn4m1c_r3s0lv3}
+
+✅ Final Flag
+SECE{sh4d0w_b1nd_dyn4m1c_r3s0lv3}
