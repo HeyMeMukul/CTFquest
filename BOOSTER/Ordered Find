@@ -1,0 +1,53 @@
+Phase 1: Metadata Analysis (The Entry Point)
+The challenge begins with an image file: tweet_002.jpg. To find the starting location, we inspect the file's metadata using tools like exiftool or strings.
+
+Key findings from Exif data:
+
+Software: netlify
+
+Artist: cool-strudel
+
+Image Description: -3f1f9b
+
+User Comment: app
+
+By combining these fragments, we reconstruct the target URL:
+
+URL: https://cool-strudel-3f1f9b.netlify.app
+
+Phase 2: Identifying the Target Record
+Upon visiting the site, we see a digital archive of various books. The original image contained two vital clues:
+
+A quote: "Sometimes you don't notice the cages... until you see the door is open."
+
+A reference: "Page 314"
+
+Browsing the "Book Record Index" on the website, we look for a title that matches the quote's theme. We find:
+
+Book ID: 002
+
+Title: Open Doors and Silent Cages
+
+Phase 3: Source Code Inspection
+The visual page displays general info, but the "four small details" mentioned in the hint refer to the comments left by the developer in the HTML source code.
+
+By right-clicking and selecting View Page Source, we find the books array in the <script> tag. Under the entry for id: '002', there is a specific developer comment:
+
+JavaScript
+{
+    id: '002',
+    title: 'Open Doors and Silent Cages',
+    published: 1998,
+    pages: 421,
+    // THIS ISBN IS THE ONLY TRUE CLUE. IGNORE ALL OTHERS! (It's the flag)
+    isbn: '978-1-4028-9467-2', 
+    archiveId: 'A-4021-X-S',
+    refCode: 'CA-DRV-00421-B'
+}
+Phase 4: The Final Flag
+The riddle states: "The identity and page is bound; but both are numbered and that is what you submit."
+
+While the site lists the page count as 421, the image specifically "bound" this identity to Page 314. However, the developer's explicit comment confirms that the ISBN for this specific bound identity is the intended flag.
+
+Flag: SECE{978-1-4028-9467-2_314}
+
