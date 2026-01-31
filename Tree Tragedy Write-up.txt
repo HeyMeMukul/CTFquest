@@ -33,4 +33,8 @@ The Source: Bhopal Singh (the deceased father).
 
 On trying some combinations for this i finally got the flag..
 
+
 Flag: SECE{bhopalsingh}
+
+HERE is gemini CHAT
+https://gemini.google.com/share/cd838b59d003
