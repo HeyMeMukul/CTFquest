@@ -81,4 +81,8 @@ So converting:
 SECE{layers_never_forget}
 
 🎉 Final Flag
+
 ✅ SECE{layers_never_forget}
+
+HERE is my GPT chat
+https://chatgpt.com/share/697c5cb6-0c0c-8005-96f7-25f9ef663dd0
